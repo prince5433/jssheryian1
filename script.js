@@ -50,7 +50,7 @@ a=12;
 //DATA TYPES +TYPE SYSYTEM
 //data tyoes meas data k type
 
-//primitive ->inko coy krne pr hame ek real copy mil jaye
+//primitive ->inko copy krne pr hame ek real copy mil jaye
 //refernce-> inko copy krne pr real copy nhi milegi refrence milegi
 //arrays objects functions
 
@@ -102,7 +102,7 @@ typeof Nan//number
 //TYPE COERCION(== VS ===)
 // COCEPT JISMEIN AAPKA EK TYPE AUTOMATICALLY COINVERT HO JAYEGA 
 
-"5"+1//"51" nuber cinverted to sting
+"5"+1//"51" nuber converted to sting
 //+ me koi bhi ek operand stirng hai to use string m convert kr dega another data type ko
 
 "5"-1// answer 4 aayega nooption for minus
@@ -509,7 +509,7 @@ arr.forEach(function(val){
 //map dikhte hi saath man mein ek blank array banalo
 // map → har element ko change karta
 arr.map(function(val){
- return 12;//[12.12.12.,12,12] new array
+ return 12;//[12.12.12,12,12] new array
  //kuch return nhi rkenge to undefined aa jayega utni hi times jitna orignal array hai
 });
 //jab bhi aapko aisa koi case dikh jaye jaha pr ek array se nya array bnega and wo naya array kuch values ko rkrhega tb map lgega
@@ -687,7 +687,7 @@ const copy = { ...user };
 //object.assign
 let obj2=Object.assign({price:Infinity},obj);//obj me ek aur key value opair add ho jayegi
 
-//deep clonong
+//deep cloning
 // Object ki poori copy banana, jisme nested objects / arrays bhi alag memory me copy ho.
 //agr aisa nhi kre to upr k keys avalues to shi deep copy hote hai ekin nested elements referce se copy ho jate hai
 const deepCopy = JSON.parse(JSON.stringify(obj));
