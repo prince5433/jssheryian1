@@ -55,6 +55,7 @@ p.innerText
 
 //textcontent
 // Element ke andar ka SAARA text, chahe hidden ho
+//it is also faster than innertext
 p.textContent
 
 // 1️⃣ getAttribute()
@@ -111,6 +112,7 @@ h1.style.textTransform="capiitalize";//har word k pahla letter capital ho jayega
 //js se kaise class lagaye ya hataye
 let h1=document.querySelector("h1");
 //console.dir krke sare props dekhan hai ratna nhi hai in sabko
+//it is more prefreed than style attribute for css
 h1.classList.add("hulu");
 
 //to remove class
@@ -144,5 +146,7 @@ li.forEach(function(elem){
 //set the font size of all<p> eleements to 18px usong.style
 let p=document.querySelectorAll("p");
 p.forEach(function(elem){
-    elem.style.fontSize:18;
+    elem.style.fontSize="18px";
 })
+
+
