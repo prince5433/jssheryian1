@@ -1,0 +1,158 @@
+//koi bhin code js mein line by line chlega aur ye natural pattern bhi hota hai ki code line by line chle
+//but kabhi kabhi aisse case aate hein lofe mien jaha par aapka code wait krt hai and utni der me gla code chal jaata haai
+Sync code line by line execute hota hai.
+Next line tabhi chalegi jab current line complete ho jaaye.
+//isa code jo line by line chle hota hai sync code
+//aisa code jo jab chlne k liye ready ho jaye tb chle wo hai async
+// Async code wait nahi karta, browser/JS usko side me handle karta hai aur baaki code aage chalta rehta hai.
+
+//async example
+console.log("1");
+
+setTimeout(function(){
+  console.log("2");
+}, 2000);
+
+console.log("3");
+o/p
+1
+3
+2
+
+//sync example
+console.log("1");
+console.log("2");
+console.log("3");
+Output:
+
+1
+2
+3
+
+//callback
+//ek function ko agr aap ek aur function bhej de rhe ho parameter me to wo parameetr wala function callbavk khlta hai
+✅ Callback kya hota hai?
+
+Callback = ek function jo dusre function ko argument me pass hota hai, aur baad me call hota hai.
+
+function greet(cb){
+    console.log("Hello");
+    cb();
+}
+
+greet(function(){
+    console.log("Bye");
+});
+Output:
+
+Hello
+Bye
+
+// ✅ Callback Hell kya hota hai?
+
+// Jab multiple async tasks ko sequence me run karna hota hai, aur callbacks ke andar callbacks likhne padte hain.
+// Code nested ho jata hai aur messy lagta hai.
+//exampple
+setTimeout(function(){
+    console.log("Step 1");
+
+    setTimeout(function(){
+        console.log("Step 2");
+
+        setTimeout(function(){
+            console.log("Step 3");
+        }, 1000);
+
+    }, 1000);
+
+}, 1000);
+// 📌 Ye pyramid shape ban jata hai = callback hell.
+// Callback Hell = callbacks ke andar callbacks → messy nested async code.
+
+//prmoises
+//aap ek promise banate ho jo ki 2 states mein se ek state me ja sakta hai and wo ya to resolve hoga ya to reject hoga
+//ab wo kkya hoga ye to waqt batayega pr hme dono k liye code likhna padta hai
+// ✅ Promise kya hota hai?
+
+// Promise ek object hai jo future me success ya fail result deta hai.
+
+// Promise ke 2 results:
+
+// resolve → success
+
+// reject → fail
+let p = new Promise(function(resolve, reject){
+    let ok = true;
+
+    if(ok){
+        resolve("Success ✅");
+    } else {
+        reject("Failed ❌");
+    }
+});
+
+
+// ✅ then() and catch()
+
+// then() → resolve wala result handle karta hai
+
+// catch() → reject wala error handle karta hai
+
+p.then(function(res){
+    console.log(res);
+})
+.catch(function(err){
+    console.log(err);
+});
+
+// 🧠 One-liner
+
+// resolve → .then()
+
+// reject → .catch()
+
+
+// aynx await error hndling with ty catch
+// Async/Await me error handling ka simple funda ye hai:
+
+// जब भी await kisi promise ko wait kar raha hota hai, aur wo promise fail (reject) ho jaye, to normal code crash ho sakta hai.
+// Isliye hum try...catch use karte hain taaki error ko handle kar sakein.
+
+async function fn(){
+  try{
+    // await wala code
+  } catch(err){
+    // error handle
+  }
+}
+// try block = jahan risky/async code hai
+
+// catch(err) = agar fail hua to yaha control aayega
+
+function orderFood(){
+  return new Promise((resolve, reject) => {
+    let shopOpen = false;
+
+    if(shopOpen){
+      resolve("Food delivered 🍔");
+    } else {
+      reject("Shop closed ❌");
+    }
+  });
+}
+
+async function run(){
+  try{
+    let result = await orderFood();
+    console.log(result);
+  } catch(err){
+    console.log("Error:", err);
+  }
+}
+
+run();
+
+// 📌 Agar shop band hai to output:
+
+// Error: Shop closed ❌
+
