@@ -2193,6 +2193,25 @@ console.log(b1);
 // IMPORTANT
 
 // Spread shallow copy banata hai.
+// Shallow Copy
+// Sirf top-level properties copy hoti hain.
+// Nested objects/arrays reference se copy hote hain.
+// Nested data change karoge to original bhi change ho sakta hai.
+// Banane ke tarike:
+// 1. Spread operator (...)
+// 2. Object.assign()
+
+// Deep Copy
+// Sab kuch fully independent copy
+// Nested bhi naya object
+// Original pe koi asar nahi
+// Banane ke tarike:
+// 1. JSON.parse(JSON.stringify(obj)) - simple objects ke liye
+// 2. structuredClone(obj) - modern, better
+// 3. Lodash _.cloneDeep() - external library
+
+// </>
+
 
 
 // COMMON CONFUSIONS
